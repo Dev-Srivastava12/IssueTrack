@@ -125,29 +125,29 @@ function fetchIssues() {
   var DoneList = document.getElementById("DoneList");
 
   issuesList.innerHTML = "";
+  if(issues.length != 0){
+    for (var i = 0; i < issues.length; i++) {
+      var id = issues[i].id;
+      var desc = issues[i].description;
+      var severity = issues[i].severity;
+      var assignedTo = issues[i].assignedTo;
+      var status = issues[i].status;
+      var issueState = issues[i].state;
 
-  for (var i = 0; i < issues.length; i++) {
-    var id = issues[i].id;
-    var desc = issues[i].description;
-    var severity = issues[i].severity;
-    var assignedTo = issues[i].assignedTo;
-    var status = issues[i].status;
-    var issueState = issues[i].state;
-
-    if (issueState === "new") {
-      issuesList.innerHTML +=
-        '<div class = "well" style="margin-right: 10px; width:23.6%">' +
-        "<h6>Issue ID: " +
-        id +
-        "</h6>" +
-        '<p><span class = "label label-info">' +
-        status +
-        "</span></p>" +
-        "<h3>" +
-        desc +
-        "</h3>" +
-        '<p><span class = "glypicon glypicon-time"></span> ' +
-        severity +
+      if (issueState === "new") {
+        issuesList.innerHTML +=
+          '<div class = "well" style="margin-right: 10px; width:23.6%">' +
+          "<h6>Issue ID: " +
+          id +
+          "</h6>" +
+          '<p><span class = "label label-info">' +
+          status +
+          "</span></p>" +
+          "<h3>" +
+          desc +
+          "</h3>" +
+          '<p><span class = "glypicon glypicon-time"></span> ' +
+          severity +
         "</p>" +
         '<p><span class = "glypicon glypicon-user"></span> ' +
         assignedTo +
@@ -318,6 +318,7 @@ function fetchIssues() {
         "</div>";
     }
   }
+}
   // setTimeout(() => {
   //   document.location.reload();
   // }, 3000);
