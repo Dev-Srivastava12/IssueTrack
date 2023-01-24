@@ -66,7 +66,7 @@ function prevState(id) {
   const issues = JSON.parse(localStorage.getItem("issues"));
   console.log("prev");
   for (var i = 0; i < issues.length; i++) {
-    if (issues[i].id == id && issues[i].state !== 'new') {
+    if (issues[i].id == id && issues[i].state !== "new") {
       var issueState = checkPrevState(issues[i].state);
       issues[i].state = issueState;
       break;
@@ -92,7 +92,7 @@ function checkPrevState(issueState) {
 function nextState(id) {
   const issues = JSON.parse(localStorage.getItem("issues"));
   for (var i = 0; i < issues.length; i++) {
-    if (issues[i].id == id && issues[i].state !== 'done') {
+    if (issues[i].id == id && issues[i].state !== "done") {
       var issueState = checkNextState(issues[i].state);
       issues[i].state = issueState;
       console.log(issueState);
@@ -125,7 +125,8 @@ function fetchIssues() {
   var DoneList = document.getElementById("DoneList");
 
   issuesList.innerHTML = "";
-  if(issues.length != 0){
+
+  if (issues != null) {
     for (var i = 0; i < issues.length; i++) {
       var id = issues[i].id;
       var desc = issues[i].description;
@@ -148,177 +149,177 @@ function fetchIssues() {
           "</h3>" +
           '<p><span class = "glypicon glypicon-time"></span> ' +
           severity +
-        "</p>" +
-        '<p><span class = "glypicon glypicon-user"></span> ' +
-        assignedTo +
-        "</p>" +
-        '<div style="display: flex; justify-content: space-between;">' +
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "setStatusClosed(\'' +
-        id +
-        '\')" class = "btn btn-warning">Close</a> ' +
-        '<a href = "#" onclick = "deleteIssue(\'' +
-        id +
-        '\')" class = "btn btn-danger">Delete</a>' +
-        "</span>" +
-        // '</div>'+
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "prevState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Prev</a> ' +
-        '<a href = "#" onclick = "nextState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Next</a>' +
-        "</span>" +
-        // '</div>'+
-        "</div>" +
-        // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
-        // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
+          "</p>" +
+          '<p><span class = "glypicon glypicon-user"></span> ' +
+          assignedTo +
+          "</p>" +
+          '<div style="display: flex; justify-content: space-between;">' +
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "setStatusClosed(\'' +
+          id +
+          '\')" class = "btn btn-warning">Close</a> ' +
+          '<a href = "#" onclick = "deleteIssue(\'' +
+          id +
+          '\')" class = "btn btn-danger">Delete</a>' +
+          "</span>" +
+          // '</div>'+
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "prevState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Prev</a> ' +
+          '<a href = "#" onclick = "nextState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Next</a>' +
+          "</span>" +
+          // '</div>'+
+          "</div>" +
+          // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
+          // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
 
-        "</div>";
-    }
+          "</div>";
+      }
 
-    if (issueState === "development") {
-      developmentList.innerHTML +=
-        '<div class = "well" style="margin-right: 10px; width:23.6%">' +
-        "<h6>Issue ID: " +
-        id +
-        "</h6>" +
-        '<p><span class = "label label-info">' +
-        status +
-        "</span></p>" +
-        "<h3>" +
-        desc +
-        "</h3>" +
-        '<p><span class = "glypicon glypicon-time"></span> ' +
-        severity +
-        "</p>" +
-        '<p><span class = "glypicon glypicon-user"></span> ' +
-        assignedTo +
-        "</p>" +
-        '<div style="display: flex; justify-content: space-between;">' +
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "setStatusClosed(\'' +
-        id +
-        '\')" class = "btn btn-warning">Close</a> ' +
-        '<a href = "#" onclick = "deleteIssue(\'' +
-        id +
-        '\')" class = "btn btn-danger">Delete</a>' +
-        "</span>" +
-        // '</div>'+
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "prevState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Prev</a> ' +
-        '<a href = "#" onclick = "nextState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Next</a>' +
-        "</span>" +
-        // '</div>'+
-        "</div>" +
-        // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
-        // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
+      if (issueState === "development") {
+        developmentList.innerHTML +=
+          '<div class = "well" style="margin-right: 10px; width:23.6%">' +
+          "<h6>Issue ID: " +
+          id +
+          "</h6>" +
+          '<p><span class = "label label-info">' +
+          status +
+          "</span></p>" +
+          "<h3>" +
+          desc +
+          "</h3>" +
+          '<p><span class = "glypicon glypicon-time"></span> ' +
+          severity +
+          "</p>" +
+          '<p><span class = "glypicon glypicon-user"></span> ' +
+          assignedTo +
+          "</p>" +
+          '<div style="display: flex; justify-content: space-between;">' +
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "setStatusClosed(\'' +
+          id +
+          '\')" class = "btn btn-warning">Close</a> ' +
+          '<a href = "#" onclick = "deleteIssue(\'' +
+          id +
+          '\')" class = "btn btn-danger">Delete</a>' +
+          "</span>" +
+          // '</div>'+
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "prevState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Prev</a> ' +
+          '<a href = "#" onclick = "nextState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Next</a>' +
+          "</span>" +
+          // '</div>'+
+          "</div>" +
+          // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
+          // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
 
-        "</div>";
-    }
+          "</div>";
+      }
 
-    if (issueState === "QA") {
-      QAList.innerHTML +=
-        '<div class = "well" style="margin-right: 10px; width:23.6%">' +
-        "<h6>Issue ID: " +
-        id +
-        "</h6>" +
-        '<p><span class = "label label-info">' +
-        status +
-        "</span></p>" +
-        "<h3>" +
-        desc +
-        "</h3>" +
-        '<p><span class = "glypicon glypicon-time"></span> ' +
-        severity +
-        "</p>" +
-        '<p><span class = "glypicon glypicon-user"></span> ' +
-        assignedTo +
-        "</p>" +
-        '<div style="display: flex; justify-content: space-between;">' +
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "setStatusClosed(\'' +
-        id +
-        '\')" class = "btn btn-warning">Close</a> ' +
-        '<a href = "#" onclick = "deleteIssue(\'' +
-        id +
-        '\')" class = "btn btn-danger">Delete</a>' +
-        "</span>" +
-        // '</div>'+
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "prevState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Prev</a> ' +
-        '<a href = "#" onclick = "nextState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Next</a>' +
-        "</span>" +
-        // '</div>'+
-        "</div>" +
-        // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
-        // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
+      if (issueState === "QA") {
+        QAList.innerHTML +=
+          '<div class = "well" style="margin-right: 10px; width:23.6%">' +
+          "<h6>Issue ID: " +
+          id +
+          "</h6>" +
+          '<p><span class = "label label-info">' +
+          status +
+          "</span></p>" +
+          "<h3>" +
+          desc +
+          "</h3>" +
+          '<p><span class = "glypicon glypicon-time"></span> ' +
+          severity +
+          "</p>" +
+          '<p><span class = "glypicon glypicon-user"></span> ' +
+          assignedTo +
+          "</p>" +
+          '<div style="display: flex; justify-content: space-between;">' +
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "setStatusClosed(\'' +
+          id +
+          '\')" class = "btn btn-warning">Close</a> ' +
+          '<a href = "#" onclick = "deleteIssue(\'' +
+          id +
+          '\')" class = "btn btn-danger">Delete</a>' +
+          "</span>" +
+          // '</div>'+
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "prevState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Prev</a> ' +
+          '<a href = "#" onclick = "nextState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Next</a>' +
+          "</span>" +
+          // '</div>'+
+          "</div>" +
+          // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
+          // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
 
-        "</div>";
-    }
+          "</div>";
+      }
 
-    if (issueState === "done") {
-      DoneList.innerHTML +=
-        '<div class = "well" style="margin-right: 10px; width:23.6%">' +
-        "<h6>Issue ID: " +
-        id +
-        "</h6>" +
-        '<p><span class = "label label-info">' +
-        status +
-        "</span></p>" +
-        "<h3>" +
-        desc +
-        "</h3>" +
-        '<p><span class = "glypicon glypicon-time"></span> ' +
-        severity +
-        "</p>" +
-        '<p><span class = "glypicon glypicon-user"></span> ' +
-        assignedTo +
-        "</p>" +
-        '<div style="display: flex; justify-content: space-between;">' +
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "setStatusClosed(\'' +
-        id +
-        '\')" class = "btn btn-warning">Close</a> ' +
-        '<a href = "#" onclick = "deleteIssue(\'' +
-        id +
-        '\')" class = "btn btn-danger">Delete</a>' +
-        "</span>" +
-        // '</div>'+
-        // '<div>'+
-        "<span>" +
-        '<a href = "#" onclick = "prevState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Prev</a> ' +
-        '<a href = "#" onclick = "nextState(\'' +
-        id +
-        '\')" class = "btn btn-danger">Next</a>' +
-        "</span>" +
-        // '</div>'+
-        "</div>" +
-        // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
-        // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
+      if (issueState === "done") {
+        DoneList.innerHTML +=
+          '<div class = "well" style="margin-right: 10px; width:23.6%">' +
+          "<h6>Issue ID: " +
+          id +
+          "</h6>" +
+          '<p><span class = "label label-info">' +
+          status +
+          "</span></p>" +
+          "<h3>" +
+          desc +
+          "</h3>" +
+          '<p><span class = "glypicon glypicon-time"></span> ' +
+          severity +
+          "</p>" +
+          '<p><span class = "glypicon glypicon-user"></span> ' +
+          assignedTo +
+          "</p>" +
+          '<div style="display: flex; justify-content: space-between;">' +
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "setStatusClosed(\'' +
+          id +
+          '\')" class = "btn btn-warning">Close</a> ' +
+          '<a href = "#" onclick = "deleteIssue(\'' +
+          id +
+          '\')" class = "btn btn-danger">Delete</a>' +
+          "</span>" +
+          // '</div>'+
+          // '<div>'+
+          "<span>" +
+          '<a href = "#" onclick = "prevState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Prev</a> ' +
+          '<a href = "#" onclick = "nextState(\'' +
+          id +
+          '\')" class = "btn btn-danger">Next</a>' +
+          "</span>" +
+          // '</div>'+
+          "</div>" +
+          // '<a href = "#" onclick = "setStatusClosed(\''+id+'\')" class = "btn btn-warning">Close</a> ' +
+          // '<a href = "#" onclick = "deleteIssue(\''+id+'\')" class = "btn btn-danger">Delete</a>' +
 
-        "</div>";
+          "</div>";
+      }
     }
   }
-}
   // setTimeout(() => {
   //   document.location.reload();
   // }, 3000);
